@@ -3,6 +3,7 @@ package com.example.neednetwork.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Table(name = "account_activity_history")
@@ -40,9 +41,9 @@ public class AccountActivity {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @PrePersist
+        @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
+    createdAt = LocalDateTime.now(ZoneId.of("Asia/Kolkata"));
     }
 
     public Long getId() {
